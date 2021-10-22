@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "256184004866",
+    "project_id": "chatx-27284",
+    "storage_bucket": "chatx-27284.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:256184004866:android:87cafb79f0d5ac1ec1521b",
+        "android_client_info": {
+          "package_name": "com.example.chatx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "256184004866-asv4ht4ldtm6c82dlve4cblte9grtimd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvygS4Sqhs-XokZ7wT9DSBOIt5s8zN5fU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "256184004866-asv4ht4ldtm6c82dlve4cblte9grtimd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.login">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_phone_animation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/phone_animation" />
+
+    <TextView
+        android:id="@+id/verify_number_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verify Your Number"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/lottie_phone_animation"
+        app:layout_constraintStart_toStartOf="@+id/lottie_phone_animation"
+        app:layout_constraintTop_toBottomOf="@id/lottie_phone_animation" />
+
+    <TextView
+        android:id="@+id/title_template"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Please enter your Phone number for verification"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/verify_number_text"
+        app:layout_constraintStart_toStartOf="@+id/verify_number_text"
+        app:layout_constraintTop_toBottomOf="@+id/verify_number_text" />
+
+
+    <LinearLayout
+        android:id="@+id/phone_number_picker_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/title_template">
+
+
+        <com.hbb20.CountryCodePicker
+            android:id="@+id/ccp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:ccp_autoFormatNumber="false"/>
+        <EditText
+            android:id="@+id/phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:hint="Enter Your Number"
+            android:inputType="number"
+            android:maxLength="10"
+            android:singleLine="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_template" />
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/continue_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="continue"
+        android:layout_margin="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phone_number_picker_layout" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_margin="30dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintTop_toBottomOf="@+id/continue_button"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
