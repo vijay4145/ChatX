@@ -2,6 +2,8 @@ package com.example.chatx.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,15 +16,21 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class OTP_verification extends AppCompatActivity {
     private String OTP;
     FirebaseAuth mAuth;
+    ProgressDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        dialog = new ProgressDialog(this);
+        dialog.setCancelable(false);
+        dialog.setMessage("Verifying OTP....");
         setContentView(R.layout.activity_otp_verification);
         Intent intent = getIntent();
         OTP = intent.getStringExtra("OTP");
@@ -36,6 +44,7 @@ public class OTP_verification extends AppCompatActivity {
                 if(otp_by_user.length() != 6){
                     Toast.makeText(OTP_verification.this, "NOT A VALID OTP", Toast.LENGTH_SHORT).show();
                 }else {
+                    dialog.show();
                     PhoneAuthCredential credential = PhoneAuthProvider.getCredential(OTP, otp_by_user);
                     signInWithPhoneAuthCredential(credential);
                 }
@@ -50,8 +59,9 @@ public class OTP_verification extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+                            dialog.dismiss();
                             Toast.makeText(OTP_verification.this, "signin completed",Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(OTP_verification.this, MainActivity.class);
+                            Intent intent = new Intent(OTP_verification.this, set_user_profile.class);
                             startActivity(intent);
 
                         }else{

@@ -1,5 +1,6 @@
 package com.example.chatx;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -12,11 +13,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.chatx.databinding.ActivityMainBinding;
+import com.example.chatx.ui.User;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+    public static User userDetails;
+    public static Uri profilePhotoUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

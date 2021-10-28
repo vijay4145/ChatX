@@ -3,6 +3,7 @@ package com.example.chatx.ui;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,12 +23,15 @@ import com.hbb20.CountryCodePicker;
 import java.util.concurrent.TimeUnit;
 
 public class login extends AppCompatActivity {
-
+    ProgressDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        dialog = new ProgressDialog(this);
+        dialog.setCancelable(false);
+        dialog.setMessage("Sending OTP....");
         EditText phone_number = findViewById(R.id.phone_number);
         CountryCodePicker ccp = findViewById(R.id.ccp);
         Button continuebtn = findViewById(R.id.continue_button);
@@ -38,14 +42,10 @@ public class login extends AppCompatActivity {
                 if(phone_number.length() != 10){
                     Toast.makeText(login.this, "Enter a valid phone number",Toast.LENGTH_SHORT).show();
                 }else{
+                    dialog.show();
                     String PHONE_NUMBER = ccp.getFullNumberWithPlus();
                     FirebaseAuth mAuth = FirebaseAuth.getInstance();
                     sendOTP(mAuth, PHONE_NUMBER);
-
-
-//                    Intent intent = new Intent(login.this, OTP_verification.class);
-//                    intent.putExtra("PHONE_NUMBER",full_phone_number);
-//                    startActivity(intent);
                 }
             }
         });
@@ -72,6 +72,7 @@ public class login extends AppCompatActivity {
                             @Override
                             public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                                 Toast.makeText(login.this, "code is sent",Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
                                 Intent intent = new Intent(login.this, OTP_verification.class);
                                 intent.putExtra("OTP",s);
                                 startActivity(intent);

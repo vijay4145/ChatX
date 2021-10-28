@@ -4,31 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.Profile_fragment">
+    tools:context=".ui.set_user_profile">
+
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_pic_in_profile_fragment"
+        android:id="@+id/profile_pic"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="200dp"
         android:layout_margin="50dp"
-        android:src="@drawable/ic_baseline_account_circle_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/ic_baseline_account_circle_24"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+
+    <EditText
         android:id="@+id/userName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="50dp"
-        android:text="Hello"
-        android:textColor="@color/purple_700"
-        android:textSize="30dp"
+        android:hint="Enter your name"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_pic_in_profile_fragment" />
+        app:layout_constraintTop_toBottomOf="@id/profile_pic" />
 
-
+    <Button
+        android:id="@+id/continue_button_in_set_user_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="50dp"
+        android:text="continue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/userName" />
 </androidx.constraintlayout.widget.ConstraintLayout>
