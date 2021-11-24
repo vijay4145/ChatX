@@ -1,11 +1,12 @@
 package com.example.chatx;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.example.chatx.fragments.Chat;
+import com.example.chatx.fragments.Chat.Chat;
 import com.example.chatx.fragments.Profile_fragment;
 
 import androidx.annotation.NonNull;
@@ -14,7 +15,10 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.chatx.databinding.ActivityMainBinding;
 import com.example.chatx.ui.User;
+import com.example.chatx.ui.login;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +30,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user == null) {
+            Intent intent = new Intent(MainActivity.this, login.class);
+            startActivity(intent);
+        }
         setContentView(binding.getRoot());
         FragmentTransaction chatPageTrans = getSupportFragmentManager().beginTransaction();
         chatPageTrans.replace(R.id.fragment_content, new Chat());

@@ -3,13 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.Chat">
+    tools:context=".fragments.Chat.Chat">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/allUsersRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="40dp"
-        android:text="chat fragment" />
+        android:layout_marginTop="10dp"/>
 
 </FrameLayout>

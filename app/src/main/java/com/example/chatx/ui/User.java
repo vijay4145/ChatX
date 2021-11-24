@@ -1,15 +1,22 @@
 package com.example.chatx.ui;
-
-import android.net.Uri;
+;
 
 public class User {
-    String uid, name, phoneNumber, profileImage;
+    public String name, phoneNumber, profileImage, uid;
 
-    public User(String uid, String name, String phoneNumber, String profileImage) {
+    public User(String name, String phoneNumber, String profileImage, String uid) {
         this.uid = uid;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.profileImage = profileImage;
+    }
+
+    public User(String uid, String name, String phoneNumber) {
+        this.uid = uid;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+    }
+    public User(){
     }
 
     public String getUid() {

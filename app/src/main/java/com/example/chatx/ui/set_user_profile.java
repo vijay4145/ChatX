@@ -16,6 +16,7 @@ import android.app.Dialog;
 import android.app.Instrumentation;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -78,11 +79,11 @@ public class set_user_profile extends AppCompatActivity {
         continueBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dialog.setMessage("Setting Profile....");
                 EditText name = findViewById(R.id.userName);
                 String userName = name.getText().toString();
                 Toast.makeText(set_user_profile.this, "clicked", Toast.LENGTH_SHORT).show();
-                if(selectedImageUri != null || userName != null){
-                    dialog.setMessage("Setting Profile....");
+                if(selectedImageUri != null && !userName.equals("")){
                     dialog.show();
                     StorageReference reference = firebaseStorage.getReference().child("profiles").child(auth.getUid());
                     reference.putFile(selectedImageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
@@ -95,10 +96,15 @@ public class set_user_profile extends AppCompatActivity {
                                         String imageUrl = uri.toString();
                                         String uid = auth.getUid();
                                         String phone = auth.getCurrentUser().getPhoneNumber();
-                                        User user = new User(uid, userName, phone, imageUrl);
+                                        SharedPreferences shrd = getSharedPreferences("UserProfile", MODE_PRIVATE);
+                                        SharedPreferences.Editor editor = shrd.edit();
+                                        editor.putString("USERNAME", userName);
+                                        editor.putString("USERPROFILE", imageUrl);
+                                        editor.apply();
+                                        User user = new User(userName, phone, imageUrl, uid);
                                         MainActivity.userDetails = user;
                                         MainActivity.profilePhotoUri = selectedImageUri;
-                                        firebaseDatabase.getReference().child("users").setValue(user)
+                                        firebaseDatabase.getReference().child("users" + "/" + uid).setValue(user)
                                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                     @Override
                                                     public void onSuccess(Void unused) {
@@ -112,6 +118,26 @@ public class set_user_profile extends AppCompatActivity {
                             }
                         }
                     });
+                }
+                else if(!userName.equals("")){
+                    dialog.show();
+                    SharedPreferences shrd = getSharedPreferences("UserProfile", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = shrd.edit();
+                    editor.putString("USERNAME", userName);
+                    editor.apply();
+                    String uid = auth.getUid();
+                    String phone = auth.getCurrentUser().getPhoneNumber();
+                    User user = new User(uid, userName, phone);
+                    MainActivity.userDetails = user;
+                    firebaseDatabase.getReference().child("users").setValue(user)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    dialog.dismiss();
+                                    Intent intent = new Intent(set_user_profile.this, MainActivity.class);
+                                    startActivity(intent);
+                                }
+                            });
                 }
             }
         });
