@@ -71,7 +71,7 @@ public class login extends AppCompatActivity {
 
                             @Override
                             public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-                                Toast.makeText(login.this, "code is sent",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(login.this, "OTP sent",Toast.LENGTH_SHORT).show();
                                 dialog.dismiss();
                                 Intent intent = new Intent(login.this, OTP_verification.class);
                                 intent.putExtra("OTP",s);

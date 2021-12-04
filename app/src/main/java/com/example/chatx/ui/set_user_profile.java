@@ -1,19 +1,16 @@
 package com.example.chatx.ui;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
+
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.app.Activity;
-import android.app.Dialog;
-import android.app.Instrumentation;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -23,7 +20,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.chatx.MainActivity;
@@ -32,8 +28,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -100,11 +94,10 @@ public class set_user_profile extends AppCompatActivity {
                                         SharedPreferences.Editor editor = shrd.edit();
                                         editor.putString("USERNAME", userName);
                                         editor.putString("USERPROFILE", imageUrl);
+                                        editor.putString("USERNUMBER",phone);
                                         editor.apply();
                                         User user = new User(userName, phone, imageUrl, uid);
-                                        MainActivity.userDetails = user;
-                                        MainActivity.profilePhotoUri = selectedImageUri;
-                                        firebaseDatabase.getReference().child("users" + "/" + uid).setValue(user)
+                                        firebaseDatabase.getReference().child("users" + "/" + phone).setValue(user)
                                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                     @Override
                                                     public void onSuccess(Void unused) {
@@ -128,7 +121,7 @@ public class set_user_profile extends AppCompatActivity {
                     String uid = auth.getUid();
                     String phone = auth.getCurrentUser().getPhoneNumber();
                     User user = new User(uid, userName, phone);
-                    MainActivity.userDetails = user;
+//                    MainActivity.userDetails = user;
                     firebaseDatabase.getReference().child("users").setValue(user)
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override

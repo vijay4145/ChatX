@@ -9,15 +9,6 @@
         android:id="@+id/navigation_group_chat"
         android:icon="@drawable/ic_baseline_groups_24"
         android:title="@string/title_groups"/>
-    <item
-        android:id="@+id/navigation_file_sharing"
-        android:icon="@drawable/ic_baseline_folder_shared_24"
-        android:title="@string/title_file_share"/>
-
-    <item
-        android:id="@+id/navigation_phone_call"
-        android:icon="@drawable/ic_baseline_phone_24"
-        android:title="@string/title_phone_call" />
 
     <item
         android:id="@+id/navigation_account_details"

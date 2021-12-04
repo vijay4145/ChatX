@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.chatx.MainActivity;
+import com.bumptech.glide.Glide;
 import com.example.chatx.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -44,9 +44,13 @@ public class Profile_fragment extends Fragment{
         super.onViewCreated(view, savedInstanceState);
         SharedPreferences shrd = Objects.requireNonNull(requireContext().getSharedPreferences("UserProfile", Context.MODE_PRIVATE));
         String userNameString = shrd.getString("USERNAME","NO NAME");
-        if(MainActivity.profilePhotoUri != null) {
+        String userPhotoUrl = shrd.getString("USERPROFILE", "NO IMAGE");
+        if(!userPhotoUrl.equals("NO IMAGE")) {
             ImageView profileImg = view.findViewById(R.id.profile_pic_in_profile_fragment);
-            profileImg.setImageURI(MainActivity.profilePhotoUri);
+//            profileImg.setImageURI(MainActivity.profilePhotoUri);
+            Glide.with(view.getContext()).load(userPhotoUrl)
+                    .placeholder(R.drawable.ic_baseline_account_circle_24)
+                    .into(profileImg);
         }
 
         TextView userName = view.findViewById(R.id.userName);

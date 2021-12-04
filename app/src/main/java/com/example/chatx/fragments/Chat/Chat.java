@@ -53,13 +53,14 @@ public class Chat extends Fragment {
                     usersInChats.add(user);
                 }
                 UserListRecyclerAdapter userListRecyclerAdapter = new UserListRecyclerAdapter(getContext(),usersInChats);
-                RecyclerView userRecyclerView = (RecyclerView) view.findViewById(R.id.allUsersRecyclerView);
+                RecyclerView userRecyclerView =  view.findViewById(R.id.allUsersRecyclerView);
                 userRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
                 userRecyclerView.setAdapter(userListRecyclerAdapter);
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(getContext(), "Something wrong with database", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

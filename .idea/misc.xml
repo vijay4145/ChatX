@@ -4,18 +4,26 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1125" />
+        <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/drawable/horizontal_divider.xml" value="0.2203125" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.2203125" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/drawable/ic_baseline_chat_24.xml" value="0.2203125" />
+        <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/drawable/ic_baseline_chat_bubble_24.xml" value="0.2203125" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/drawable/ic_baseline_groups_24.xml" value="0.2203125" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/drawable/ic_baseline_phone_24.xml" value="0.2203125" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/drawable/ic_baseline_post_add_24.xml" value="0.2203125" />
+        <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.2203125" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/drawable/ic_baseline_video_call_24.xml" value="0.2203125" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.1125" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.2203125" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.1125" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/drawable/profile_phot_shape.xml" value="0.2203125" />
+        <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/drawable/receive_bubble_shape.xml" value="0.2203125" />
+        <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/drawable/send_bubble_shape.xml" value="0.2203125" />
+        <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/drawable/sendbox_shape.xml" value="1.1071428571428572" />
+        <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/drawable/triangle.xml" value="0.2203125" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/layout/activity_messaging_page.xml" value="0.22" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/layout/activity_otp_verification.xml" value="0.20416666666666666" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/layout/activity_set_user_profile.xml" value="0.20416666666666666" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/layout/fragment_chat.xml" value="0.20416666666666666" />
@@ -23,6 +31,7 @@
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/layout/fragment_notifications.xml" value="0.20416666666666666" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/layout/fragment_profile_fragment.xml" value="0.20416666666666666" />
+        <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/layout/message_card_view.xml" value="0.22" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/layout/phone_number_verify.xml" value="0.20416666666666666" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/layout/users_card_view.xml" value="0.20416666666666666" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20416666666666666" />
