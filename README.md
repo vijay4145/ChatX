@@ -15,9 +15,6 @@ This is a simple chatting application which helps users to  chat with other user
 ## Screenshots
 
 
-<img src="app_screenshots/Picture1.jpg">
-<img src="app_screenshots/Picture2.jpg">
-<img src="app_screenshots/Picture3.jpg">
-<img src="app_screenshots/Picture4.jpg">
-<img src="app_screenshots/Picture5.jpg">
-<img src="app_screenshots/Picture6.jpg">
+<img src="app_screenshots/Picture1.jpg" width=260>     <img src="app_screenshots/Picture2.jpg" width=260>
+<img src="app_screenshots/Picture3.jpg" width=260>     <img src="app_screenshots/Picture4.jpg" width=260>
+<img src="app_screenshots/Picture5.jpg" width=260>     <img src="app_screenshots/Picture6.jpg" width=260>
