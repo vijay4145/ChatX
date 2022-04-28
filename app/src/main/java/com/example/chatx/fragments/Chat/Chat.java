@@ -1,5 +1,7 @@
 package com.example.chatx.fragments.Chat;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,13 +11,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.chatx.R;
-import com.example.chatx.ui.User;
+import com.example.chatx.account_setup.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -43,6 +47,10 @@ public class Chat extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+
+        TextView textView = view.findViewById(R.id.loadingText);
+
         ArrayList<User> usersInChats = new ArrayList<>();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         database.getReference().child("users").addValueEventListener(new ValueEventListener() {
@@ -52,6 +60,7 @@ public class Chat extends Fragment {
                     User user = snapshot1.getValue(User.class);
                     usersInChats.add(user);
                 }
+                textView.setVisibility(View.INVISIBLE);
                 UserListRecyclerAdapter userListRecyclerAdapter = new UserListRecyclerAdapter(getContext(),usersInChats);
                 RecyclerView userRecyclerView =  view.findViewById(R.id.allUsersRecyclerView);
                 userRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));

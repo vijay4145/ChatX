@@ -1,4 +1,4 @@
-package com.example.chatx.ui;
+package com.example.chatx.account_setup;
 ;
 
 public class User {

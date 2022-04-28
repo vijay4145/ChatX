@@ -1,4 +1,4 @@
-package com.example.chatx.ui;
+package com.example.chatx.account_setup;
 
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -17,6 +17,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -77,7 +78,9 @@ public class set_user_profile extends AppCompatActivity {
                 EditText name = findViewById(R.id.userName);
                 String userName = name.getText().toString();
                 Toast.makeText(set_user_profile.this, "clicked", Toast.LENGTH_SHORT).show();
+                Log.d("chatX1", userName);
                 if(selectedImageUri != null && !userName.equals("")){
+                    Log.d("chatX1", userName);
                     dialog.show();
                     StorageReference reference = firebaseStorage.getReference().child("profiles").child(auth.getUid());
                     reference.putFile(selectedImageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
@@ -87,6 +90,7 @@ public class set_user_profile extends AppCompatActivity {
                                 reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                     @Override
                                     public void onSuccess(Uri uri) {
+                                        Log.d("chatX1", "succesfully pushed to firebase");
                                         String imageUrl = uri.toString();
                                         String uid = auth.getUid();
                                         String phone = auth.getCurrentUser().getPhoneNumber();
@@ -96,18 +100,23 @@ public class set_user_profile extends AppCompatActivity {
                                         editor.putString("USERPROFILE", imageUrl);
                                         editor.putString("USERNUMBER",phone);
                                         editor.apply();
+                                        Log.d("chatX1", "success2");
                                         User user = new User(userName, phone, imageUrl, uid);
                                         firebaseDatabase.getReference().child("users" + "/" + phone).setValue(user)
                                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                     @Override
                                                     public void onSuccess(Void unused) {
                                                         dialog.dismiss();
+                                                        Log.d("chatX1", "success3");
                                                         Intent intent = new Intent(set_user_profile.this, MainActivity.class);
                                                         startActivity(intent);
+                                                        finish();
                                                     }
                                                 });
                                     }
                                 });
+                            }else{
+                                Log.d("chatX1", task.toString());
                             }
                         }
                     });
@@ -122,7 +131,7 @@ public class set_user_profile extends AppCompatActivity {
                     String phone = auth.getCurrentUser().getPhoneNumber();
                     User user = new User(uid, userName, phone);
 //                    MainActivity.userDetails = user;
-                    firebaseDatabase.getReference().child("users").setValue(user)
+                    firebaseDatabase.getReference().child("users/" + phone).setValue(user)
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {

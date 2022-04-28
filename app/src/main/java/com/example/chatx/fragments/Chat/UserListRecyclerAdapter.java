@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.chatx.R;
 import com.example.chatx.fragments.message_page.MessagingPage;
-import com.example.chatx.ui.User;
+import com.example.chatx.account_setup.User;
 
 import java.util.ArrayList;
 
@@ -40,10 +40,14 @@ public class UserListRecyclerAdapter extends RecyclerView.Adapter<UserListRecycl
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.userName.setText(userArrayList.get(position).getName());
         User assignedUser = userArrayList.get(position);
-        Glide.with(context).load(userArrayList.get(position)
-                .getProfileImage())
-                .placeholder(R.drawable.ic_baseline_account_circle_24)
-                .into(holder.profileImg);
+        if(assignedUser.getProfileImage() == null)
+            Toast.makeText(context, "Image value null is creating the problem", Toast.LENGTH_SHORT).show();
+        else {
+            Glide.with(context).load(userArrayList.get(position)
+                    .getProfileImage())
+                    .placeholder(R.drawable.ic_baseline_account_circle_24)
+                    .into(holder.profileImg);
+        }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,7 +55,6 @@ public class UserListRecyclerAdapter extends RecyclerView.Adapter<UserListRecycl
                 intent.putExtra("userName", assignedUser.getName());
                 intent.putExtra("userPhoneNumber",assignedUser.getPhoneNumber());
                 intent.putExtra("userProfile", assignedUser.getProfileImage());
-                Toast.makeText(context, "clicked "+assignedUser.getName(), Toast.LENGTH_SHORT).show();
                 context.startActivity(intent);
             }
         });

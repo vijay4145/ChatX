@@ -10,9 +10,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.chatx.MsgDatabase;
 import com.example.chatx.R;
 import com.google.firebase.database.DataSnapshot;
@@ -23,6 +26,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Objects;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class MessagingPage extends AppCompatActivity {
@@ -45,8 +50,12 @@ public class MessagingPage extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
 
-        Objects.requireNonNull(getSupportActionBar()).setTitle(name);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        TextView userNameTextView = findViewById(R.id.userName);
+        userNameTextView.setText(name);
+
+        setBackButton();
+        setProfilePic();
 
         msgDatabase = new MsgDatabase(getApplicationContext());
         previousMessageWithThisUser = msgDatabase.getMessage(receiverPhoneNumber);
@@ -61,6 +70,23 @@ public class MessagingPage extends AppCompatActivity {
         listenMessageFromFireBase(messagesRecyclerAdapter);
         ImageButton sendButton = findViewById(R.id.send_button_in_activity_messaging_page);
         bindSendButton(sendButton,messagesRecyclerAdapter);
+    }
+
+    private void setProfilePic() {
+        CircleImageView profilePic = findViewById(R.id.profile_image);
+        Glide.with(MessagingPage.this).load(userProfileLink)
+                .placeholder(R.drawable.ic_baseline_account_circle_24)
+                .into(profilePic);
+    }
+
+    private void setBackButton() {
+        ImageButton backButton = findViewById(R.id.back_button);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onSupportNavigateUp();
+            }
+        });
     }
 
     private void listenMessageFromFireBase(MessagesRecyclerAdapter messagesRecyclerAdapter) {

@@ -1,4 +1,4 @@
-package com.example.chatx.ui;
+package com.example.chatx.account_setup;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -76,6 +76,7 @@ public class login extends AppCompatActivity {
                                 Intent intent = new Intent(login.this, OTP_verification.class);
                                 intent.putExtra("OTP",s);
                                 startActivity(intent);
+                                finish();
                             }
                         })
                         .build();

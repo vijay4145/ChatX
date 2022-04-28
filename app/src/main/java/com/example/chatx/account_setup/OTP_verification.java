@@ -1,4 +1,4 @@
-package com.example.chatx.ui;
+package com.example.chatx.account_setup;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -60,6 +60,7 @@ public class OTP_verification extends AppCompatActivity {
                             Toast.makeText(OTP_verification.this, "signin completed",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(OTP_verification.this, set_user_profile.class);
                             startActivity(intent);
+                            finish();
 
                         }else{
                             Toast.makeText(OTP_verification.this, "enter a valid otp",Toast.LENGTH_SHORT).show();

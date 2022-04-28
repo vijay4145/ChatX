@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.OTP_verification">
+    tools:context=".account_setup.OTP_verification">
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/otp_lottieAnimationView"

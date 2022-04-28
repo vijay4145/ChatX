@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1125" />
+        <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/drawable/bottom_navigation_shape.xml" value="0.2203125" />
+        <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/drawable/fragment_shape.xml" value="0.2203125" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/drawable/horizontal_divider.xml" value="0.2203125" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.2203125" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/drawable/ic_baseline_chat_24.xml" value="0.2203125" />
@@ -22,12 +24,14 @@
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/drawable/sendbox_shape.xml" value="1.1071428571428572" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/drawable/triangle.xml" value="0.2203125" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
-        <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/layout/activity_messaging_page.xml" value="0.22" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/layout/activity_otp_verification.xml" value="0.20416666666666666" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/layout/activity_set_user_profile.xml" value="0.20416666666666666" />
+        <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/layout/activity_splash_screen.xml" value="0.20416666666666666" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/layout/fragment_chat.xml" value="0.20416666666666666" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/layout/fragment_dashboard.xml" value="0.20416666666666666" />
+        <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/layout/fragment_group_chat.xml" value="0.20416666666666666" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/layout/fragment_notifications.xml" value="0.20416666666666666" />
         <entry key="..\:/New Volume/androidProjects/ChatX/app/src/main/res/layout/fragment_profile_fragment.xml" value="0.20416666666666666" />
